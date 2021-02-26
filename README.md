@@ -6,7 +6,7 @@ This is a two day course. You are expected to know how to program in at least on
 
 This course is meant to be run in person. There are comments in the exercises to try and point you in the right direction so you should be able to do this in your spare time if you desire. Unit tests are included to verify your solutions for each exercise.
 
-Use `./auto/sbt test` to run the tests. The first time you run the tests, they will all fail. This is a good thing! As you complete each exercise correctly, the tests will pass.
+Use `sbt test` to run the tests. The first time you run the tests, they will all fail. This is a good thing! As you complete each exercise correctly, the tests will pass.
 
 We welcome pull requests and feedback!
 
@@ -53,13 +53,13 @@ At a minimum, you need:
 
 - This repository
 - Java 11 installed (even if you have a newer version)
-- Docker
+- SBT
 - Text editor (IntelliJ is recommended)
 
 #### 1. Fork or clone this repository
 
 ```
-$ git clone https://github.com/wjlow/intro-to-scala.git
+$ git clone https://github.com/zendesk/intro-to-scala-sf.git
 $ cd intro-to-scala/
 ```
 
@@ -69,25 +69,16 @@ Test if you have Java 11 already with `java -version`.
 
 ##### macOS (using [Homebrew](https://brew.sh))
 
-Run the following two commands:
-
 ```
-$ brew tap AdoptOpenJDK/openjdk
-$ brew cask install adoptopenjdk11
+$ brew install java
 ```
 
-#### 3. Install [Docker](https://www.docker.com/)
 
-##### macOS
-
-Use [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
-
-#### 4. Run SBT through Docker
-
-To run the `sbt` shell using Docker:
+#### 3. Run SBT through Docker
 
 ```
-$ ./auto/sbt
+$ brew install sbt
+$ sbt
 ```
 
 __Tip__: Launching SBT might take some time, so we recommend using SBT's interactive shell to run commands, instead of lauching SBT for each command.
