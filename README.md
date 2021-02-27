@@ -74,7 +74,7 @@ $ brew install java
 ```
 
 
-#### 3. Run SBT through Docker
+#### 3. Run SBT
 
 ```
 $ brew install sbt
@@ -83,9 +83,9 @@ $ sbt
 
 __Tip__: Launching SBT might take some time, so we recommend using SBT's interactive shell to run commands, instead of lauching SBT for each command.
 
-#### [5. Compile program to resolve dependencies before the course](#compilation)
+#### [4. Compile program to resolve dependencies before the course](#compilation)
 
-#### [6. IDE setup](#ide-setup)
+#### [5. IDE setup](#ide-setup)
 
 ## Compilation
 
