@@ -9,3 +9,5 @@ scalaVersion := "2.13.3"
 scalacOptions ++= Seq(
   "-Werror"
 )
+
+testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-C", "delight.LittleRed")
