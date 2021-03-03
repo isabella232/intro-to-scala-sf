@@ -242,6 +242,15 @@ sbt> exit
 
 9. Build the project with <kbd>Cmd</kbd> + <kbd>F9</kbd>. If you get no errors, IntelliJ setup is all done!
 
+### A successful setup
+![You can run a single test from IntelliJ](successful IntelliJ setup.png)
+If in trouble, you can try to follow a common fix procedure:
+1. Close IntelliJ
+2. Find the `.idea` folder under the root of your git repository (e.g. ~/Code/zendesk/intro-to-scala-sf)
+3. Delete the `.idea` folder (rm -rf ~/Code/zendesk/intro-to-scala-sf/.idea), proceed with caution
+4. ReOpen IntelliJ and try to check the presence of the "green arrow"
+5. You can try multiple times if the first time did not go through well
+
 Tips:
 
 * You can run individual tests by right-clicking and then selecting _Run ...ExercisesTest_ ([or just use SBT](#how-to-run-tests))
@@ -273,6 +282,25 @@ Tips:
 ![scala api browser](scala-api.png)
 
 </p></details>
+
+## Common Errors
+<details><summary>Failed to resolve SBT dependencies</summary>
+
+```
+$ sbt test:compile 
+…
+		::::::::::::::::::::::::::::::::::::::::::::::
+		::          UNRESOLVED DEPENDENCIES         ::
+		::::::::::::::::::::::::::::::::::::::::::::::
+		:: org.scala-sbt#sbt;1.4.7: not found
+		::::::::::::::::::::::::::::::::::::::::::::::
+```
+
+<p>
+The root cause might be you do not have correct Artifactory credentials setup yet.
+Check up this <a href="https://github.com/zendesk/zdi/blob/master/docs/artifactory.md">tutorial</a> to fix it.
+</p>
+</details>
 
 ## Further documentation
 
