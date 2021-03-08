@@ -72,12 +72,9 @@ object Service {
     println(s"${request.uri.path}: ${response.status.code}")
   }
 
-  /* Now write a new implementation for the users endpoint.
+  /* Now write an extended implementation for the users endpoint.
    * It should reuse the existing `users` method, but add a call to
    * logging.
-   *
-   * Once you complete the method, replace the `users` call in the `run` method with the
-   * new `usersWithLog` method.
    *
    * Hints:
    * - Use a for comprehension
