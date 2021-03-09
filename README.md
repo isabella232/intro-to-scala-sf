@@ -43,7 +43,7 @@ We welcome pull requests and feedback!
 | 13.15 | Exceptions2EitherExercises |
 | 14.30 | TryExercises |
 | 15.00 | Afternoon break |
-| 15.30 | LogParser |
+| 15.30 | ServiceExercises |
 | 16.45 | Wrap up |
 | 17.00 | End |
 
@@ -287,7 +287,7 @@ Tips:
 <details><summary>Failed to resolve SBT dependencies</summary>
 
 ```
-$ sbt test:compile 
+$ sbt test:compile
 …
 		::::::::::::::::::::::::::::::::::::::::::::::
 		::          UNRESOLVED DEPENDENCIES         ::

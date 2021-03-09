@@ -1,5 +1,6 @@
 package introcourse.level06
 
+import scala.io
 import scala.util.{Try, Success, Failure}
 
 /**
