@@ -74,7 +74,8 @@ class ServiceTest extends AsyncFunSpec with TypeCheckedTripleEquals {
     }
 
     it("should return users") {
-      val response = Service.users()
+      val request = Request[IO](uri = Uri(path = "/users"))
+      val response = Service.usersWithLog(request)
 
       response
         .flatMap(response => response.as[String])
