@@ -31,7 +31,8 @@ object Service {
    */
   def run(request: Request[IO]): IO[Response[IO]] = request match {
     case GET -> Root / "ping" => ping()
-    case _ => ???
+    case GET -> Root / "users" => usersWithLog(request)
+    case _ => IO(Response(Status.NotFound))
   }
 
   /* Our service is going to return a list of user names. Let's start by writing
@@ -42,7 +43,7 @@ object Service {
    * - The newline character is represented as "\n"
    * - You can use foldLeft or mkString to concatenate the list items
    */
-  def userNames(users: List[User]): String = ???
+  def userNames(users: List[User]): String = users.map(_.name).mkString("\n")
 
   /* Now, let's implement the response for the users endpoint.
    * You can use the `Database` object.
@@ -62,7 +63,14 @@ object Service {
    *   option, either, etc.
    * - Use pattern matching to handle the `Either` type
    */
-  def users(): IO[Response[IO]] = ???
+  def users(): IO[Response[IO]] = {
+    Database.getUsers().map { res =>
+      res match {
+        case Right(users) => Response(Status.Ok).withEntity(userNames(users))
+        case _ => Response(Status.InternalServerError)
+      }
+    }
+  }
 
   /* We are now extending our service with support for logging.
    * The following method will print some request and response information to the
@@ -79,7 +87,10 @@ object Service {
    * Hints:
    * - Use a for comprehension
    */
-  def usersWithLog(request: Request[IO]): IO[Response[IO]] = ???
+  def usersWithLog(request: Request[IO]): IO[Response[IO]] = for {
+    response <- users()
+    _ <- log(request, response)
+  } yield response
 
   /* Finally, let's add a route to the `run` method to handle GET requests to the
    * "users" endopint. Hook it up to the `usersWithLog` method.
