@@ -8,15 +8,19 @@ import org.http4s.dsl.io._
 object Service {
   /* The service already has ping endpoint.
    *
-   * You can try it by running the service:
-   * > sbt run
-   *
-   * Try calling the service at http://localhost:8080/ping
-   *
    * Look at the status parameter of the Response class: `Status.Ok`.
    * This is an implemented via an ADT. Why?
    */
   def ping(): IO[Response[IO]] = IO(Response(Status.Ok).withEntity("pong"))
+
+  /* Let's look at how our service is run.
+   * Open Main.scala and fix the `main` method.
+   *
+   * Afterwards, try running the service:
+   * > sbt run
+   *
+   * Try calling the service at http://localhost:8080/ping
+   */
 
   /* The run method contains our "routes". It maps requests to responses.
    *
